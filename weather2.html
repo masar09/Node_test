@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> 지금의 온도 </h1>
+    <input id="city" type="text" value="seoul">
+    <button onclick="getweather()"> 온도 호출 버튼</button>
+    <P id="temperature"></P>
+        <script>
+            function getweather(){
+                let city = document.getElementById("city").value;
+                fetch('https://goweather.herokuapp.com/weather/' + city)
+                .then((response) => response.json())
+                .then((data) => {
+                    document.getElementById("temperature").innerHTML = data['temperature'];
+                });
+            }
+        </script>
+    
+</body>
+</html>

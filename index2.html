@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하이큐 직급 표시</title>
+</head>
+<body>
+    <h1 id="car"> </h1>
+    <input id="name" type="text" value=""/>
+    <button onclick="getcar()" >API 요청 </button>
+
+    <script>
+        function getcar(){
+            const name = document.getElementById('name').Value
+            fetch(`http://localhost:3000/car/${name}`) 
+            // fetch(`https://port-0-node-hiq-company-p8xrq2mlf6fuhg4.sel3.cloudtype.app/sound/${name}`)  // 자바스크립트 변수 사용은 키보드 왼쪽끝 위쪽 키를 이용해 사용
+            .then((Response) => Response.json())
+            .then((data) => {
+                console.log(data.car)
+                document.getElementById('car').innerHTML = data.car
+            });
+
+        }
+    </script>
+</body>
+</html>
+
+
+
+ 
